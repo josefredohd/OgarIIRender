@@ -38,6 +38,7 @@ require("./log-handler")(currentHandle);
 const logger = currentHandle.logger;
 
 let commandStreamClosing = false;
+/*
 const commandStream = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -53,7 +54,7 @@ commandStream.once("SIGINT", () => {
     currentHandle.stop();
     process.exitCode = 0;
 });
-
+*/
 
 DefaultCommands(currentHandle.commands, currentHandle.chatCommands);
 currentHandle.protocols.register(...DefaultProtocols);
@@ -120,6 +121,7 @@ currentHandle.commands.register(
     }),
 );
 
+/*
 function ask() {
     if (commandStreamClosing) return;
     commandStream.question("@ ", (input) => {
@@ -134,4 +136,5 @@ setTimeout(() => {
     logger.debug("command stream open");
     ask();
 }, 1000);
+*/
 currentHandle.start();
